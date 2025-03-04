@@ -1,0 +1,22 @@
+{# home/templates/home/index.html #}
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}SiliCOM 社团官网 - 首页{% endblock %}
+
+{% block content %}
+<section class="dashboard-grid">
+    {% for app in apps %}
+    <a href="{{ app.url }}" class="app-card">
+        <div class="card-hover-effect"></div>
+        <div class="card-content">
+            <div class="app-icon">
+                <img src="{% static 'core/icons/chart-network.svg' %}" alt="{{ app.name }}">
+            </div>
+            <h3 class="app-title">{{ app.name }}</h3>
+            <p class="app-description">进入{{ app.name }}管理模块</p>
+        </div>
+    </a>
+    {% endfor %}
+</section>
+{% endblock %}

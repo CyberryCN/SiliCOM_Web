@@ -1,0 +1,125 @@
+/* home/static/home/css/style.css */
+:root {
+    --primary-blue: #1a73e8;    /* 主蓝 */
+    --hover-blue: #1557b0;       /* 悬停深蓝 */
+    --light-gray: #f8f9fa;       /* 背景灰 */
+    --border-gray: #dee2e6;      /* 边框灰 */
+    --text-dark: #2d3436;        /* 正文深色 */
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui;
+    background-color: var(--light-gray);
+}
+
+/* 头部样式 */
+.main-header {
+    background: var(--primary-blue);
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 1rem;
+}
+
+.title {
+    color: white;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* 应用卡片网格 */
+.app-grid {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.app-card {
+    text-decoration: none;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.app-card:active {
+    transform: scale(0.98);
+}
+
+/* 卡片内容 */
+.card-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.card-icon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+}
+
+.icon-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-blue);
+    opacity: 0.1;
+    border-radius: 50%;
+    transform: scale(0.9);
+    transition: transform 0.3s;
+}
+
+.app-card:hover .icon-bg {
+    transform: scale(1.1);
+}
+
+.material-icons {
+    font-size: 40px;
+    color: var(--primary-blue);
+    position: relative;
+    z-index: 1;
+}
+
+.card-title {
+    color: var(--text-dark);
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+}
+
+.card-desc {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* 页脚样式 */
+.main-footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #666;
+    border-top: 1px solid var(--border-gray);
+    margin-top: 3rem;
+}

@@ -1,0 +1,3 @@
+SiliCOM_Web/
+__pycache__/
+*.sqlite3

@@ -1,0 +1,116 @@
+/* 颜色变量 */
+:root {
+    --primary-blue: #1A4D8F;    /* 深蓝主色 */
+    --secondary-blue: #6B9BC6;  /* 辅助蓝 */
+    --light-bg: #F5F7FA;        /* 背景灰 */
+    --text-dark: #2D3748;       /* 正文深色 */
+    --hover-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 全局布局 */
+body {
+    background-color: var(--light-bg);
+    margin: 0;
+    font-family: 'Helvetica Neue', system-ui;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.global-header {
+    background: var(--primary-blue);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* 在 global.css 中添加以下样式 */
+.brand-logo {
+    height: 40px;
+    margin-right: 1rem;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 1rem;
+}
+
+/* 如果遇到父容器裁剪问题可添加 */
+.header-container {
+    min-height: 60px;    /* 确保容器高度足够 */
+    overflow: visible;    /* 防止悬停放大时被裁剪 */
+}
+
+
+.main-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-item {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: var(--hover-transition);
+}
+
+.nav-item:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.nav-item.active {
+    background: var(--secondary-blue);
+    font-weight: 500;
+}
+
+/* 内容容器 */
+.content-container {
+    flex: 1;
+    max-width: 1280px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* 应用卡片通用样式 */
+.app-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: var(--hover-transition);
+}
+
+.app-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+}
+
+/* 页脚 */
+.global-footer {
+    background: white;
+    border-top: 1px solid #E2E8F0;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    color: #718096;
+}
