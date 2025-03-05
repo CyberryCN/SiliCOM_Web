@@ -4,7 +4,7 @@ from django.apps import apps
 # Create your views here.
 def index(request):
     #定义展示的应用列表
-    enable_apps = ['introduction', 'suggestion']
+    enable_apps = ['introduction','service','suggestion']
 
     app_links = []
     for app_name in enable_apps:

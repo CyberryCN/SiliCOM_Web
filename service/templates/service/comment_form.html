@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-info text-white">
+                    <h3 class="mb-0"><i class="fas fa-comment-medical"></i> 服务评价</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <!-- 修改提示文字 -->
+                        <div class="mb-3">
+                            <label class="form-label">识别码</label>
+                            {{ form.unique_code }}
+                            <small class="form-text text-muted">
+                                请输入报名时获得的识别码（12位字母数字组合）
+                            </small>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label class="form-label">服务评分</label>
+                            <div class="star-rating">
+                                {% for i in "54321" %}
+                                <input type="radio" id="star{{i}}" name="rating" value="{{i}}"
+                                       {% if form.rating.value == i %}checked{% endif %}>
+                                <label for="star{{i}}"><i class="fas fa-star"></i></label>
+                                {% endfor %}
+                            </div>
+                            {% if form.rating.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {{ form.rating.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">评价内容</label>
+                            {{ form.content }}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-check-circle"></i> 提交评价
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.star-rating {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    display: inline-block;
+}
+.star-rating input { display: none; }
+.star-rating label {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+    padding: 0 3px;
+}
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffc107;
+}
+</style>
+{% endblock %}

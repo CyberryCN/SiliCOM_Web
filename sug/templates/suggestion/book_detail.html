@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'sug:level-list' %}">所有价位</a></li>
+            <li class="breadcrumb-item">
+                <a href="{% url 'sug:book-list' book.level.level_id %}">
+                    {{ book.level.level_range }}
+                </a>
+            </li>
+            <li class="breadcrumb-item active">{{ book.book_name }}</li>
+        </ol>
+    </nav>
+
+    <div class="row g-4">
+        <!-- 左侧图片区 -->
+        <div class="col-md-5">
+            <div class="card shadow-sm">
+                {% if book.book_preview %}
+                <img src="{{ book.book_preview.url }}"
+                     class="card-img-top"
+                     alt="{{ book.book_name }}"
+                     style="max-height: 500px; object-fit: contain;">
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- 右侧信息区 -->
+        <div class="col-md-7">
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h2 class="mb-0">{{ book.book_name }}</h2>
+                </div>
+                <div class="card-body">
+                    <h4 class="mb-3">核心配置</h4>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <p><strong>处理器：</strong>{{ book.book_cpu }}</p>
+                            <p><strong>显卡：</strong>{{ book.book_gpu }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>上市时间：</strong>
+                                {{ book.release_date|date:"Y年m月" }}
+                            </p>
+                            <p><strong>参考价位：</strong>
+                                {{ book.level.level_range }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <h4 class="mb-3">详细参数</h4>
+                    <div class="bg-light p-3 rounded mb-4">
+                        {{ book.book_detail|linebreaks }}
+                    </div>
+
+                    <h4 class="mb-3">推荐人群</h4>
+                    <div class="bg-light p-3 rounded">
+                        {{ book.book_crowd|linebreaks }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

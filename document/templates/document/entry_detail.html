@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'board-list' %}">所有板块</a></li>
+            <li class="breadcrumb-item">
+                <a href="{{ entry.board.get_absolute_url }}">
+                    {{ entry.board.board_title }}
+                </a>
+            </li>
+            <li class="breadcrumb-item active">{{ entry.entry_title }}</li>
+        </ol>
+    </nav>
+
+    <article>
+        <header class="mb-4">
+            <h1>{{ entry.entry_title }}</h1>
+            <div class="text-muted mb-3">
+                <span>作者：{{ entry.entry_writer }}</span>
+                <span class="mx-2">|</span>
+                <span>发布日期：{{ entry.entry_time|date:"Y-m-d H:i" }}</span>
+            </div>
+        </header>
+        <div class="content-box border p-4 rounded">
+            {{ entry.entry_content|linebreaks }}
+        </div>
+    </article>
+</div>
+{% endblock %}

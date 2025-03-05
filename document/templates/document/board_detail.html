@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'board-list' %}">所有板块</a></li>
+            <li class="breadcrumb-item active">{{ board.board_title }}</li>
+        </ol>
+    </nav>
+
+    <h2 class="mb-4">{{ board.board_title }} 文章列表</h2>
+    <div class="list-group">
+        {% for entry in entries %}
+        <a href="{{ entry.get_absolute_url }}"
+           class="list-group-item list-group-item-action">
+            <div class="d-flex justify-content-between">
+                <h5>{{ entry.entry_title }}</h5>
+                <small class="text-muted">{{ entry.entry_time|date:"Y-m-d" }}</small>
+            </div>
+            <small>作者：{{ entry.entry_writer }}</small>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white">
+                    <h3 class="mb-0"><i class="fas fa-file-signature"></i> 报名表 - {{ activity.title }}</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label">显示昵称</label>
+                            {{ form.nick_name }}
+                            <div class="form-text">将在评价中显示的名称（如：小明同学）</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">设备型号</label>
+                            {{ form.machine }}
+                            <div class="form-text">请填写完整型号（如：戴尔XPS 15 9520）</div>
+                            {% if form.machine.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {{ form.machine.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">具体需求</label>
+                            {{ form.requirement }}
+                            <div class="form-text">请详细描述需要帮助的问题</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">联系电话</label>
+                            {{ form.phone_number }}
+                            <div class="form-text">格式：+86 13800138000</div>
+                            {% if form.phone_number.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {{ form.phone_number.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-paper-plane"></i> 提交报名
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

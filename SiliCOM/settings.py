@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     "home.apps.HomeConfig",
     "intro.apps.IntroConfig",
     "sug.apps.SugConfig",
+    "document.apps.DocumentConfig",
+    "donation.apps.DonationConfig",
+    "recruiment.apps.RecruimentConfig",
+    "service.apps.ServiceConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -114,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Shanghai"
 
 USE_I18N = True
 
@@ -126,13 +130,13 @@ USE_TZ = True
 # 媒体文件配置
 MEDIA_URL = '/media/'  # 访问路径
 MEDIA_ROOT = os.path.join(BASE_DIR, 'intro/media')  # 存储路径
-
 #静态文件放置
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "core/static"),
     os.path.join(BASE_DIR, 'home/static'),
-    os.path.join(BASE_DIR, 'intro/static'),# 指向应用的 static 目录
+    os.path.join(BASE_DIR, 'intro/static'),
+    os.path.join(BASE_DIR, 'sug/static'),# 指向应用的 static 目录
 ]
 
 # Default primary key field type

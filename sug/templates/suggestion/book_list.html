@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'sug:level-list' %}">所有价位</a></li>
+            <li class="breadcrumb-item active">{{ level.level_range }}</li>
+        </ol>
+    </nav>
+
+    <h2 class="mb-4">{{ level.level_range }} 推荐机型</h2>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for book in books %}
+        <div class="col">
+            <div class="card shadow-sm h-100">
+                {% if book.book_preview %}
+                <img src="{{ book.book_preview.url }}"
+                     class="card-img-top"
+                     alt="{{ book.book_label }}"
+                     style="height: 250px; object-fit: contain;">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ book.book_name }}</h5>
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <small class="text-muted">
+                                <i class="fas fa-microchip"></i> {{ book.book_cpu }}
+                            </small>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted">
+                                <i class="fas fa-video"></i> {{ book.book_gpu }}
+                            </small>
+                        </div>
+                    </div>
+                    <a href="{{ book.get_absolute_url }}"
+                       class="btn btn-outline-primary w-100">
+                        查看详细配置
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
