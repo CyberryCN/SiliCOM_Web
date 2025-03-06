@@ -47,7 +47,7 @@ class Book(models.Model):
         verbose_name='产品预览图',
         blank=True,
         null=True,
-        help_text='图片将存储在 static/suggestion/images/previews/',
+        help_text='图片将存储在 static/media/previews/',
     )
     book_cpu = models.CharField(
         max_length=100,
