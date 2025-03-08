@@ -23,13 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-r&e-qhc3)i@!h13%72se!6l^kj5+(f(i@hkkg0t(gmkxy^75ng"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'frp-dad.com',       # 你的 FRP 域名
     'localhost',          # 本地开发环境
     '127.0.0.1',          # 本地环回地址
     '[::1]',              # IPv6 环回地址
+    'silicom.club',         # 域名
 ]
 
 
