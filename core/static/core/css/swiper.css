@@ -1,0 +1,62 @@
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%; /* 确保滑块占满整个容器高度 */
+}
+.slider-wrapper img {
+    width: auto; /* 确保图片宽度自动调整 */
+    height: auto; /* 确保图片高度自动调整 */
+    max-width: 100%; /* 限制图片最大宽度 */
+    max-height: 100%; /* 限制图片最大高度 */
+    object-fit: cover; /* 确保图片按比例填充容器 */
+    margin: auto; /* 居中显示图片 */
+    display: block; /* 确保图片是块级元素 */
+}
+.slider-footer {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    color: white;
+}
+.slider-footer p {
+    margin: 0;
+    font-size: 1.2em;
+}
+.slider-indicators {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+}
+.slider-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.slider-indicators li.active {
+    background-color: white;
+    opacity: 1;
+}
+.toggle {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+}
+.toggle button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    padding: 10px;
+    cursor: pointer;
+}

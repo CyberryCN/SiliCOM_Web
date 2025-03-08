@@ -1,0 +1,19 @@
+{# templates/recruitment/index.html #}
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <section class="mb-5">
+        <h2 class="mb-4 border-bottom pb-2">社团历史</h2>
+        <div class="bg-light p-4 rounded">
+            {{ text|safe }}
+        </div>
+    </section>
+    <div>
+    {% if document %}
+        <a href="{{ document.document.url }}">{{ document.doc_label }}</a>
+    {% else %}
+        <p>暂无招新文档</p>
+    {% endif %}
+    </div>
+{% endblock %}

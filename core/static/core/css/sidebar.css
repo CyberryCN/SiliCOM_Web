@@ -1,0 +1,45 @@
+/* 侧边栏样式 */
+.sidebar {
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    width: 250px; /* 侧边栏宽度 */
+    height: 100%; /* 高度为100% */
+    background-color: #5e8699; /* 背景颜色 */
+    color: #fff; /* 字体颜色 */
+    padding: 20px; /* 内边距 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    box-sizing: border-box;
+    overflow-y: auto; /* 允许垂直滚动 */
+    border-radius: 10px;
+}
+
+/* 标题样式 */
+.sidebar h2 {
+    font-size: 24px; /* 标题字体大小 */
+    margin-bottom: 20px; /* 标题下方间距 */
+}
+
+/* 列表样式 */
+.sidebar ul {
+    list-style: none; /* 去掉默认的列表样式 */
+    padding: 0;
+    margin: 0;
+}
+
+/* 列表项样式 */
+.sidebar ul li {
+    margin-bottom: 20px; /* 列表项下方间距 */
+}
+
+/* 链接样式 */
+.sidebar ul li a {
+    color: #fff; /* 链接字体颜色 */
+    text-decoration: none; /* 去掉下划线 */
+    font-size: 18px; /* 链接字体大小 */
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline; /* 鼠标悬停时显示下划线 */
+    color: #0056b3;
+}

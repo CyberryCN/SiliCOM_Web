@@ -22,7 +22,7 @@ def signup_view(request, activity_id):
     activity = get_object_or_404(Activity, pk=activity_id)
 
     if not activity.available:
-        return redirect('activity-detail', activity_id=activity_id)
+        return redirect('service:activity-detail', activity_id=activity_id)
 
     if request.method == 'POST':
         form = SignupForm(request.POST)

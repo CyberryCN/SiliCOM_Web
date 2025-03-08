@@ -1,0 +1,52 @@
+/* 轮播图和导航栏容器 */
+.slider-nav-container {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: flex-start; /* 垂直对齐顶部 */
+    width: 100%; /* 容器宽度占满父容器 */
+    margin: 30px 0; /* 上下间距 */
+}
+
+/* 轮播图样式 */
+.slider {
+    width: 50%; /* 轮播图宽度为50% */
+    overflow: hidden;
+    position: relative;
+    height: 400px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: rgba(190, 223, 232, 0.566);
+    margin: 0; /* 移除 margin */
+}
+
+/* 导航栏样式 */
+.nav {
+    width: 10%; /* 导航栏宽度为10% */
+    height: 400px;
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1rem;
+    background-color: #5e8699;
+    color: #fff;
+    margin-left: 0; /* 确保没有左边距 */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav ul {
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    padding: 0;
+    margin: 0;
+}
+
+.nav ul li {
+    margin: 30px 0; /* 调整间距 */
+    list-style: none; /* 去掉圆点 */
+}
+.nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}

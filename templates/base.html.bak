@@ -1,0 +1,45 @@
+{# templates/base.html #}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SiliCOM 社团官网{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'core/css/global.css' %}">
+    {% block extra_css %}{% endblock %}  {# 各应用可扩展CSS #}
+</head>
+<body>
+    <!-- 公共头部 -->
+    <header class="global-header">
+        <div class="header-container">
+            <img src="{% static 'core/images/logo.png' %}" alt="Logo" class="logo">
+            <nav class="main-nav">
+                <a href="/" class="nav-item">SiliCOM电脑协会</a>
+                <a href="/" class="nav-item {% if request.path == '/' %}active{% endif %}">首页</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 动态内容区 -->
+    <main class="content-container">
+        {% block content %}
+        {# 子模板在此插入内容 #}
+        {% endblock %}
+    </main>
+
+    <!-- 公共页脚 -->
+    <footer class="global-footer">
+        <div class="footer-content">
+            <p>© 2025 SiliCOM 版权所有</p>
+            <div class="tech-stack">
+                <span>Powered by Django</span>
+                <span>|</span>
+                <span>UI by SiliCOM Design System</span>
+            </div>
+        </div>
+    </footer>
+    {% block extra_js %}{% endblock %}  {# 各应用可扩展JS #}
+</body>
+</html>

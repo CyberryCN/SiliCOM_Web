@@ -33,6 +33,8 @@ class Activity(models.Model):
         now = timezone.now()
         if now > self.limit_time:
             self.available = False
+        else:
+            self.available = True
         super().save(*args, **kwargs)
 
     class Meta:

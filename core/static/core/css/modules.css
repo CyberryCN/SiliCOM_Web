@@ -1,0 +1,69 @@
+/* 容器样式 */
+.modules-container {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    flex-direction: column; /* 子元素垂直排列 */
+    gap: 20px; /* 模块之间的间距 */
+    padding: 20px; /* 内边距 */
+    box-sizing: border-box;
+    width: 100%; /* 容器宽度 */
+    height: 100vh; /* 容器高度，视口高度 */
+    margin-top: 0%;
+}
+
+/* 模块列表样式 */
+.modules {
+    list-style: none; /* 去掉默认的列表样式 */
+    padding: 0;
+    margin: 0;
+    display: grid; /* 使用网格布局 */
+    grid-template-columns: repeat(2, 1fr); /* 两列布局 */
+    gap: 20px; /* 模块之间的间距 */
+    width: 840px; /* 容器宽度，刚好容纳两个模块 */
+    margin: 0 auto; /* 水平居中 */
+}
+
+/* 单个模块样式 */
+.modules li {
+    width: 400px; /* 模块宽度 */
+    height: 300px; /* 模块高度 */
+    background-size: cover; /* 背景图片填满模块 */
+    background-position: center; /* 背景图片居中 */
+    background-repeat: no-repeat; /* 背景图片不重复 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px; /* 圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    font-size: 18px; /* 字体大小 */
+    font-weight: bold; /* 字体加粗 */
+    color: #fff; /* 字体颜色，白色 */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* 文字阴影 */
+    position: relative; /* 相对定位 */
+    overflow: hidden; /* 隐藏超出部分 */
+}
+
+.modules li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover; /* 背景图片填满模块 */
+    background-position: center; /* 背景图片居中 */
+    background-repeat: no-repeat; /* 背景图片不重复 */
+    background-color: rgba(255, 255, 255, 0.6); /* 半透明黑色背景 */
+    opacity: 0.5; /* 透明度 */
+    z-index: 1; /* 层级 */
+}
+.modules li span {
+    position: relative; /* 相对定位 */
+    z-index: 2; /* 层级 */
+}
+.modules li a {
+    position: relative;
+    z-index: 2; /* 确保比伪元素高 */
+}
